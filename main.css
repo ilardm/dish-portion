@@ -1,38 +1,44 @@
+/* -*- mode: css; css-indent-offset: 2 -*- */
+
 body {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .debug * {
-    border: 1px solid red;
-    margin: 1px;
-    padding: 1px;
+  border: 1px solid red;
+  margin: 1px;
+  padding: 1px;
 }
 
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .plusminus {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .dish {
-    margin: 1em 0;
+  margin: 1em 0;
 }
 
 .ingredient {
-    margin: 0.5em 0;
+  margin: 0.5em 0;
 }
 
 .weight_row
 {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .weight_row > * {
-    width: 30%;
+  width: 30%;
+}
+
+.template {
+  display: none;
 }
