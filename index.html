@@ -22,25 +22,7 @@
 
         <input type="text" placeholder="a dish">
 
-        <div class="container ingredients">
-          <div class="container ingredient">
-            <div class="container plusminus">
-              <input type="button" class="add" value="+">
-              <input type="button" class="delete" value="-">
-            </div>
-
-            <input type="text" placeholder="an ingredient">
-
-            <div class="container weight_row">
-              <label>weight
-                <input type="number" name="ingredient_weight" placeholder="0" min="0">
-              </label>
-              <label>portion
-                <input type="number" name="ingredient_portion" placeholder="0" readonly>
-              </label>
-            </div>
-          </div>
-        </div>
+        <div class="container ingredients"></div>
 
         <hr>
 
@@ -53,6 +35,24 @@
           </label>
           <label>portion
             <input type="number" name="dish_portion" placeholder="0" min="0">
+          </label>
+        </div>
+      </div>
+
+      <div class="container ingredient">
+        <div class="container plusminus">
+          <input type="button" class="add" value="+">
+          <input type="button" class="delete" value="-">
+        </div>
+
+        <input type="text" placeholder="an ingredient">
+
+        <div class="container weight_row">
+          <label>weight
+            <input type="number" name="ingredient_weight" placeholder="0" min="0">
+          </label>
+          <label>portion
+            <input type="number" name="ingredient_portion" placeholder="0" readonly>
           </label>
         </div>
       </div>

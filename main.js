@@ -46,10 +46,7 @@ function dishAdd(target) {
 
   let ingredientsContainer = dish.querySelector('.ingredients');
 
-  _addBtnHandler(dish, '.ingredient .add', () => ingredientAdd(ingredientsContainer));
-  _addBtnHandler(dish, '.ingredient .delete', (ev) => _deleteItem(ev.target.parentNode.parentNode, '.ingredient'));
-
-  dish.querySelector('.weight_row input[name=ingredient_weight]').addEventListener('change', recompute);
+  ingredientAdd(ingredientsContainer);
 }
 
 function ingredientAdd(target) {
