@@ -33,10 +33,10 @@
 
             <div class="container weight_row">
               <label>weight
-                <input type="number" class="weight" placeholder="0">
+                <input type="number" name="ingredient_weight" placeholder="0" min="0">
               </label>
-              <label>outcome
-                <input type="number" class="outcome" placeholder="0">
+              <label>portion
+                <input type="number" name="ingredient_portion" placeholder="0" readonly>
               </label>
             </div>
           </div>
@@ -46,13 +46,13 @@
 
         <div class="container weight_row">
           <label>total
-            <input type="number" class="total" placeholder="0">
+            <input type="number" name="dish_total" placeholder="0" readonly>
           </label>
           <label>outcome
-            <input type="number" class="outcome" placeholder="0">
+            <input type="number" name="dish_outcome" placeholder="0" min="0">
           </label>
           <label>portion
-            <input type="number" class="portion" placeholder="0">
+            <input type="number" name="dish_portion" placeholder="0" min="0">
           </label>
         </div>
       </div>
