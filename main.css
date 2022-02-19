@@ -1,3 +1,38 @@
 body {
     font-size: 14px;
 }
+
+.debug * {
+    border: 1px solid red;
+    margin: 1px;
+    padding: 1px;
+}
+
+
+.container {
+    position: relative;
+}
+
+.plusminus {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dish {
+    margin: 1em 0;
+}
+
+.ingredient {
+    margin: 0.5em 0;
+}
+
+.weight_row
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.weight_row > * {
+    width: 30%;
+}

@@ -9,6 +9,50 @@
     <script type="module" src="main.js" defer></script>
   </head>
 
-  <body>
+  <body class="debug">
+
+    <div class="container">
+      <div class="container dish">
+        <div class="container plusminus">
+          <input type="button" class="add" value="+">
+          <input type="button" class="delete" value="-">
+        </div>
+
+        <input type="text" placeholder="a dish">
+
+        <div class="container ingredient">
+          <div class="container plusminus">
+            <input type="button" class="add" value="+">
+            <input type="button" class="delete" value="-">
+          </div>
+
+          <input type="text" placeholder="an ingredient">
+
+          <div class="container weight_row">
+            <label>weight
+              <input type="number" class="weight" placeholder="0">
+            </label>
+            <label>outcome
+              <input type="number" class="outcome" placeholder="0">
+            </label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="container weight_row">
+          <label>total
+            <input type="number" class="total" placeholder="0">
+          </label>
+          <label>outcome
+            <input type="number" class="outcome" placeholder="0">
+          </label>
+          <label>portion
+            <input type="number" class="portion" placeholder="0">
+          </label>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
