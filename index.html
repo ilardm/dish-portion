@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>dish portion</title>
 
     <link type="text/css" rel="stylesheet" href="main.css">
@@ -9,24 +11,28 @@
     <script type="module" src="main.js" defer></script>
   </head>
 
-  <body class="debug">
+  <body>
 
-    <div class="container application"></div>
+    <div class="application"></div>
 
-    <div class="container template">
-      <div class="container dish">
-        <div class="container plusminus">
-          <input type="button" class="add" value="+">
-          <input type="button" class="delete" value="-">
+    <div class="template">
+      <div class="dish">
+        <div class="row header">
+          <div class="name_container">
+            <input type="text" name="dish_name" placeholder="a dish">
+          </div>
+
+          <div class="plusminus">
+            <input type="button" class="add" value="+">
+            <input type="button" class="delete" value="-">
+          </div>
         </div>
 
-        <input type="text" name="dish_name" placeholder="a dish">
-
-        <div class="container ingredients"></div>
+        <div class="ingredients"></div>
 
         <hr>
 
-        <div class="container weight_row">
+        <div class="row weight_row">
           <label>total
             <input type="number" name="dish_total" placeholder="0" readonly>
           </label>
@@ -39,15 +45,19 @@
         </div>
       </div>
 
-      <div class="container ingredient">
-        <div class="container plusminus">
-          <input type="button" class="add" value="+">
-          <input type="button" class="delete" value="-">
+      <div class="ingredient">
+        <div class="row header">
+          <div class="name_container">
+            <input type="text" name="ingredient_name" placeholder="an ingredient">
+          </div>
+
+          <div class="plusminus">
+            <input type="button" class="add" value="+">
+            <input type="button" class="delete" value="-">
+          </div>
         </div>
 
-        <input type="text" name="ingredient_name" placeholder="an ingredient">
-
-        <div class="container weight_row">
+        <div class="row weight_row">
           <label>weight
             <input type="number" name="ingredient_weight" placeholder="0" min="0">
           </label>
