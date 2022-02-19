@@ -1,7 +1,9 @@
 /* -*- mode: css; css-indent-offset: 2 -*- */
 
 body {
-  font-size: 14px;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 .debug * {
@@ -16,6 +18,17 @@ body {
 
 .dish {
   margin: 1.5em 0;
+  background-color: hsl(0, 0%, 96%);
+}
+.dish:first-child {
+  margin-top: 0;
+}
+.dish:last-child {
+  margin-bottom: 0;
+}
+
+.dish input {
+  background-color: hsl(0, 0%, 98%);
 }
 
 .row {
@@ -30,20 +43,40 @@ body {
 
 .ingredient {
   margin: 1em 0;
+  background-color: hsl(0, 0%, 94%);
+}
+
+.ingredient input {
+  background-color: hsl(0, 0%, 96%);
 }
 
 .dish .header,
-.ingredient .header {
+.ingredient .header
+{
   margin-bottom: 0.5em;
   line-height: 2em;
+}
+
+.dish,
+.ingredient
+{
+  padding: 0.5em;
+  border: 1px solid hsl(0, 0%, 85%);
 }
 
 .weight_row > * {
   width: 30%;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid hsl(0, 0%, 80%);
+}
+
 input {
+  font-size: 1em;
   box-sizing: border-box;
+  border: 1px solid hsl(0, 0%, 80%);
 }
 
 input::-webkit-outer-spin-button,
