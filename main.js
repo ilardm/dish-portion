@@ -1,4 +1,5 @@
 /* -*- mode: js; js-indent-level: 2 -*- */
+/* vim: set shiftwidth=2 */
 
 document.addEventListener('DOMContentLoaded', main);
 
@@ -12,6 +13,28 @@ function main() {
   if (!loaded) {
     dishAdd(appContainer);
   }
+
+  _setupMenuHandler();
+}
+
+function _setupMenuHandler() {
+  // https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp
+
+  let prevPos = window.pageYOffset;
+  let menu = document.getElementById('menu');
+
+  window.addEventListener('scroll', () => {
+    let pos = window.pageYOffset;
+    if (prevPos > pos) {
+      menu.classList.remove('hidden');
+    } else {
+      menu.classList.add('hidden');
+    }
+    prevPos = pos;
+  });
+
+  _addBtnHandler(menu, 'input[type="button"][name="export"]', exportHandler);
+  _addBtnHandler(menu, 'input[type="button"][name="import"]', importHandler);
 }
 
 function _addTemplateItem(target, selector) {
@@ -165,21 +188,47 @@ function _mapDish(dish) {
   return ret;
 }
 
-function save() {
+function _dishPageToJSON() {
   let dishes = Array.from(document.querySelectorAll('.application .dish'));
   dishes = dishes.map(_mapDish);
   dishes = JSON.stringify(dishes);
 
+  return dishes;
+}
+
+function save() {
+  let dishes = _dishPageToJSON();
+
   localStorage.setItem('dishes', dishes);
 }
 
-function load(target) {
-  let dishes = localStorage.getItem('dishes');
-  if (!dishes) return false;
+function load(target, dishes) {
+  if (!dishes) {
+    dishes = localStorage.getItem('dishes');
+    if (!dishes) return false;
+  }
 
-  dishes = JSON.parse(dishes);
+  try {
+    dishes = JSON.parse(dishes);
+  } catch (e) {
+    alert('invalid data provided');
+    return false;
+  }
   dishes = dishes.reverse();
   dishes.forEach((d) => dishAdd(target, d));
 
   return true;
+}
+
+function exportHandler() {
+  let dishes = _dishPageToJSON();
+
+  window.prompt('copy this', dishes);
+}
+
+function importHandler() {
+  let dishes = window.prompt('paste dishes');
+  let appContainer = document.querySelector('.application');
+
+  load(appContainer, dishes);
 }

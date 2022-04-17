@@ -1,4 +1,5 @@
 /* -*- mode: css; css-indent-offset: 2 -*- */
+/* vim: set shiftwidth=2 */
 
 body {
   font-size: 16px;
@@ -10,6 +11,23 @@ body {
   border: 1px solid red;
   margin: 1px;
   padding: 1px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  transition: top 0.3s;
+}
+
+.menu.hidden {
+  top: calc(-2*0.5em - 2em);
+}
+
+.application {
+  padding-top: calc(2*0.5em + 2em);
 }
 
 .template {
