@@ -220,15 +220,53 @@ function load(target, dishes) {
   return true;
 }
 
+function _getExportImportDialog(isExport=false) {
+  let dialog = document.getElementById('import_export_dialog');
+  if (isExport) {
+    dialog.classList.remove('import');
+    dialog.classList.add('export');
+  } else {
+    dialog.classList.remove('export');
+    dialog.classList.add('import');
+  }
+
+  let textarea = dialog.querySelector('textarea');
+  if (isExport) {
+    textarea.setAttribute('readonly', '');
+  } else {
+    textarea.removeAttribute('readonly');
+  }
+
+  return [dialog, textarea];
+}
+
 function exportHandler() {
   let dishes = _dishPageToJSON();
 
-  window.prompt('copy this', dishes);
+  let [dialog, textarea] = _getExportImportDialog(true);
+  textarea.value = dishes;
+
+  dialog.showModal();
 }
 
 function importHandler() {
-  let dishes = window.prompt('paste dishes');
-  let appContainer = document.querySelector('.application');
+  let [dialog, textarea] = _getExportImportDialog(false);
+  textarea.value = '';
 
-  load(appContainer, dishes);
+  dialog.addEventListener('close', () => {
+    if (dialog.returnValue == 'cancel') return;
+
+    let dishes = textarea.value;
+
+    if (!dishes) return;
+
+    let appContainer = document.querySelector('.application');
+
+    let loaded = load(appContainer, dishes);
+    if (loaded) {
+      save();
+    }
+  }, {once: true});
+
+  dialog.showModal();
 }

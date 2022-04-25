@@ -18,6 +18,22 @@
         <input type="button" name="export" value="export">
         <input type="button" name="import" value="import">
       </div>
+
+      <div>
+        <dialog id="import_export_dialog">
+          <form method="dialog">
+            <p class="message export_message">Copy the following data:</p>
+            <p class="message import_message">Paste exported data here:</p>
+
+            <textarea rows="10" spellcheck="false" autocomplete="off" autocorrect="off"></textarea>
+
+            <div class="buttons_container">
+              <button value="ok">ok</button>
+              <button value="cancel">cancel</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
     </div>
 
     <div class="template">

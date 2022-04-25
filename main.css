@@ -116,3 +116,20 @@ input[type=button] {
   width: 2em;
   height: 2em;
 }
+
+dialog textarea {
+  display: block;
+  width: 100%;
+}
+
+dialog .buttons_container {
+  margin: 1em 0;
+}
+
+.export .import_message {
+  display: none;
+}
+
+.import .export_message {
+  display: none;
+}
