@@ -135,6 +135,39 @@ input[type=button] {
   height: 2em;
 }
 
+input[type=button].icon {
+  border: 0;
+  text-indent: 2em;
+  background-color: initial;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon.export {
+  background-image: url('https://www.svgrepo.com/show/332284/cloud-download.svg');
+}
+
+.icon.import {
+  background-image: url('https://www.svgrepo.com/show/332286/cloud-upload.svg');
+}
+
+.icon.fold {
+  background-image: url('https://www.svgrepo.com/show/332590/up.svg');
+}
+
+.folded .icon.fold {
+  background-image: url('https://www.svgrepo.com/show/332328/down.svg');
+}
+
+.icon.delete {
+  background-image: url('https://www.svgrepo.com/show/332313/delete.svg');
+}
+
+.icon.add {
+  background-image: url('https://www.svgrepo.com/show/332488/plus.svg');
+}
+
 dialog textarea {
   display: block;
   width: 100%;

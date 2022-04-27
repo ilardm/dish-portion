@@ -33,8 +33,8 @@ function _setupMenuHandler() {
     prevPos = pos;
   });
 
-  _addBtnHandler(menu, 'input[type="button"][name="export"]', exportHandler);
-  _addBtnHandler(menu, 'input[type="button"][name="import"]', importHandler);
+  _addBtnHandler(menu, 'input[type="button"].export', exportHandler);
+  _addBtnHandler(menu, 'input[type="button"].import', importHandler);
 }
 
 function _addTemplateItem(target, selector) {
