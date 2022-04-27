@@ -56,7 +56,21 @@ body {
 
 .name_container {
   flex: 1 0 auto;
+}
+
+.buttons_container:first-child {
   margin-right: 0.5em;
+}
+
+.buttons_container:last-child {
+  margin-left: 0.5em;
+}
+
+.dish.folded .ingredients,
+.dish.folded hr,
+.dish.folded .weight_row
+{
+  display: none;
 }
 
 .ingredient {
@@ -73,6 +87,10 @@ body {
 {
   margin-bottom: 0.5em;
   line-height: 2em;
+}
+
+.dish.folded .header {
+  margin-bottom: initial;
 }
 
 .dish,

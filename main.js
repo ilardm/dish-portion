@@ -71,8 +71,13 @@ function dishAdd(target, data) {
     dish.querySelector('input[name=dish_name]').value = data['name'];
     dish.querySelector('.weight_row input[name=dish_outcome]').value = data['outcome'];
     dish.querySelector('.weight_row input[name=dish_portion]').value = data['portion'];
+
+    if (!!data._state?.folded) {
+      dish.classList.add('folded');
+    }
   }
 
+  _addBtnHandler(dish, '.dish .fold', () => _toggleFolded(dish));
   _addBtnHandler(dish, '.dish .add', () => dishAdd(target));
   _addBtnHandler(dish, '.dish .delete', () => _deleteItem(dish, '.dish'));
 
@@ -90,6 +95,12 @@ function dishAdd(target, data) {
   }
 
   recompute(dish);
+}
+
+function _toggleFolded(target) {
+  target.classList.toggle('folded');
+
+  save();
 }
 
 function ingredientAdd(target, data) {
@@ -184,6 +195,10 @@ function _mapDish(dish) {
     'outcome': outcome,
     'portion': portion,
   };
+
+  if (dish.classList.contains('folded')) {
+    ret['_state'] = {'folded': true};
+  }
 
   return ret;
 }
