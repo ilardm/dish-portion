@@ -96,6 +96,7 @@ function dishAdd(target, data) {
     ingredients.forEach((i) => ingredientAdd(ingredientsContainer, i));
   } else {
     ingredientAdd(ingredientsContainer);
+    dish.querySelector('input[name=dish_name]').focus()
   }
 
   recompute(dish);
@@ -112,6 +113,8 @@ function ingredientAdd(target, data) {
 
   if (!!data) {
     ingredient.querySelector('input[name=ingredient_name]').value = data['name'];
+  } else {
+    ingredient.querySelector('input[name=ingredient_name]').focus();
   }
 
   _addBtnHandler(ingredient, '.ingredient .add', () => ingredientAdd(target));
