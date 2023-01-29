@@ -35,6 +35,10 @@ function _setupMenuHandler() {
 
   _addBtnHandler(menu, 'input[type="button"].export', exportHandler);
   _addBtnHandler(menu, 'input[type="button"].import', importHandler);
+
+  _addBtnHandler(menu, 'input[type="button"].search', searchBtnHandler);
+  menu.querySelector('input[name="search_text"]').addEventListener('keyup', searchTextHandler);
+  _addBtnHandler(menu, 'input[type="button"].close', searchBtnHandler);
 }
 
 function _addTemplateItem(target, selector) {
@@ -284,4 +288,55 @@ function importHandler() {
   }, {once: true});
 
   dialog.showModal();
+}
+
+function searchBtnHandler(ev) {
+  let isOpen = ev.target.classList.contains('search');
+  let isClose = ev.target.classList.contains('close');
+
+  let menu = document.getElementById('menu');
+
+  if (isOpen) {
+    // expand
+    menu.querySelector('input[type="button"].export').classList.add('hidden');
+    menu.querySelector('input[type="button"].import').classList.add('hidden');
+
+    // show search controls
+    menu.querySelector('input[name="search_text"]').classList.remove('hidden');
+    menu.querySelector('input[type="button"].close').classList.remove('hidden');
+
+    menu.querySelector('input[name="search_text"]').focus();
+  } else if (isClose) {
+    // expand
+    menu.querySelector('input[type="button"].export').classList.remove('hidden');
+    menu.querySelector('input[type="button"].import').classList.remove('hidden');
+
+    // hide search controls
+    menu.querySelector('input[name="search_text"]').classList.add('hidden');
+    menu.querySelector('input[type="button"].close').classList.add('hidden');
+
+    // clear filters
+    ev.target.parentNode.querySelector('input[name="search_text"]').value='';
+    _doSearch('');
+  }
+}
+
+function searchTextHandler(ev) {
+  let text = ev.target.value.toLowerCase();
+  _doSearch(text);
+}
+
+function _doSearch(text) {
+  let dishes = Array.from(document.querySelectorAll('.application .dish'));
+
+  dishes.forEach((d) => {
+    let dishName = d.querySelector('input[name="dish_name"]').value.toLowerCase();
+
+    let found = dishName.search(text) >= 0;
+    if (!found) {
+      d.classList.add('hidden');
+    } else {
+      d.classList.remove('hidden');
+    }
+  });
 }

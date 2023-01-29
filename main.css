@@ -13,11 +13,17 @@ body {
   padding: 1px;
 }
 
+.hidden {
+  display: none;
+}
+
 .menu {
   position: fixed;
   top: 0;
   width: 100%;
   padding: 0.5em;
+  box-sizing: border-box;
+  display: flex;
   background-color: hsl(0, 0%, 100%);
   transition: top 0.3s;
 }
@@ -70,6 +76,10 @@ body {
 .dish.folded hr,
 .dish.folded .weight_row
 {
+  display: none;
+}
+
+.dish.hidden {
   display: none;
 }
 
@@ -168,6 +178,14 @@ input[type=button].icon {
   background-image: url('https://www.svgrepo.com/show/332488/plus.svg');
 }
 
+.icon.search {
+  background-image: url('https://www.svgrepo.com/show/332533/search.svg');
+}
+
+.icon.close {
+  background-image: url('https://www.svgrepo.com/show/332280/close.svg');
+}
+
 dialog textarea {
   display: block;
   width: 100%;
@@ -183,4 +201,10 @@ dialog .buttons_container {
 
 .import .export_message {
   display: none;
+}
+
+
+#search {
+  display: flex;
+  flex-grow: 1;
 }
