@@ -128,8 +128,37 @@ function ingredientAdd(target, data) {
   }
 }
 
+var _regexps = {};
+
+function _getRegexp(pattern) {
+  if (pattern in _regexps) return _regexps[pattern];
+
+  let regexp = new RegExp(pattern);
+  _regexps[pattern] = regexp;
+
+  return regexp;
+}
+
+function _maybeEvalNumberInput(input) {
+  let pattern = input.getAttribute('pattern');
+
+  if (!pattern) return true;
+
+  let regex = _getRegexp(pattern);
+  if (!regex.test(input.value)) return false;
+
+  input.value = eval(input.value);
+
+  return true;
+}
+
+
 function _onWeightsInputChange(ev) {
   let dish = ev.target;
+
+  let evaled = _maybeEvalNumberInput(dish);
+  if (!evaled) return;
+
   let check = (n) => n.classList.contains('dish')
 
   while (!check(dish)) {

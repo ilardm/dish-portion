@@ -70,13 +70,13 @@
 
         <div class="row weight_row">
           <label>total
-            <input type="number" name="dish_total" placeholder="0" readonly>
+            <input type="text" name="dish_total" placeholder="0" readonly>
           </label>
           <label>outcome
-            <input type="number" name="dish_outcome" placeholder="0" min="0">
+            <input type="text" name="dish_outcome" placeholder="0" class="number" spellcheck="false" pattern="^[0-9\+\-\/\*]+$">
           </label>
           <label>portion
-            <input type="number" name="dish_portion" placeholder="0" min="0">
+            <input type="text" name="dish_portion" placeholder="0" class="number" spellcheck="false" pattern="^[0-9\+\-\/\*]+$">
           </label>
         </div>
       </div>
@@ -95,10 +95,10 @@
 
         <div class="row weight_row">
           <label>weight
-            <input type="number" name="ingredient_weight" placeholder="0" min="0">
+            <input type="text" name="ingredient_weight" placeholder="0" class="number" spellcheck="false" pattern="^[0-9\+\-\/\*]+$">
           </label>
           <label>portion
-            <input type="number" name="ingredient_portion" placeholder="0" readonly>
+            <input type="text" name="ingredient_portion" placeholder="0" readonly>
           </label>
         </div>
       </div>
